@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -16,16 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = [
-            [
-                'title' => 'Primeiro Post',
-                'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?'
-            ],
-            [
-                'title' => 'Segundo Post',
-                'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?'
-            ]
-        ];
+        $posts = Post::all();
 
         return view('post.index', compact('posts'));
     }

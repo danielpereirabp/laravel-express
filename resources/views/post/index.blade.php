@@ -16,7 +16,16 @@
                 <hr>
 
                 <!-- Post Content -->
-                <p><a href="#">{{ $post['body'] }}</a></p>
+                <p><a href="#">{{ $post['content'] }}</a></p>
+
+                <p>
+                    <b>Tags</b>
+                    <ul>
+                        @foreach($post->tags as $tag)
+                            <li>{{ $tag->name }}</li>
+                        @endforeach
+                    </ul>
+                </p>
 
                 <hr>
             @endforeach
@@ -45,4 +54,4 @@
     </div>
     <!-- /.row -->
 
-@stop
+@endsection
